@@ -2,11 +2,11 @@ import React from 'react';
 import LinearGradient, {
   LinearGradientProps,
 } from 'react-native-linear-gradient';
-import RadialGradient, {
-  RadialGradientProps,
-} from 'react-native-radial-gradient';
+// import RadialGradient, {
+//   RadialGradientProps,
+// } from 'react-native-radial-gradient';
 
-interface IProps extends RadialGradientProps, LinearGradientProps {
+interface IProps extends LinearGradientProps {
   children: React.ReactNode;
   colors: string[];
   type?: 'linear' | 'radial';
@@ -25,10 +25,10 @@ export default function Gradient({
       </LinearGradient>
     );
   }
-
-  return (
-    <RadialGradient colors={colors} {...props}>
-      {children}
-    </RadialGradient>
-  );
+  return null;
+  // return (
+  //   <RadialGradient colors={colors} {...props}>
+  //     {children}
+  //   </RadialGradient>
+  // );
 }
