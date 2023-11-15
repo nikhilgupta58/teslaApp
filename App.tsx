@@ -1,10 +1,11 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, Text} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {car_black} from './src/assets';
 import Button from './src/components/Buttons';
 import {styles} from './src/utils/style';
 import CustomImage from './src/wrappers/CustomImage';
+import CustomText from './src/wrappers/CustomText';
 import Flex from './src/wrappers/Flex';
 import Gradient from './src/wrappers/Gradient';
 const Car_bg = () => {
@@ -70,10 +71,8 @@ function App(): JSX.Element {
                   flexDirection: 'row',
                   alignItems: 'center',
                 }}>
-                <Text
+                <CustomText
                   style={{
-                    color: '#fff',
-                    fontFamily: 'SF-Pro-Text-Regular',
                     fontSize: 17,
                     fontWeight: '600',
                     lineHeight: 22,
@@ -83,7 +82,7 @@ function App(): JSX.Element {
                     textAlign: 'center',
                   }}>
                   {lock ? 'Unlock' : 'Lock'}
-                </Text>
+                </CustomText>
                 <Button
                   icon={lock ? 'lock' : 'unLock'}
                   type={lock ? 'default' : 'pressed'}
