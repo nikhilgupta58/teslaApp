@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, ScrollView, StatusBar} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
 import {car_black} from './src/assets';
 import Back from './src/components/Buttons/Back';
 import CustomImage from './src/wrappers/CustomImage';
@@ -7,7 +7,33 @@ import Flex from './src/wrappers/Flex';
 import Gradient from './src/wrappers/Gradient';
 
 function App(): JSX.Element {
-  const screenHeight = Dimensions.get('window').height;
+  const Car_bg = () => {
+    return (
+      <Flex
+        style={{
+          flexDirection: 'column',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'transparent',
+          zIndex: 1,
+          justifyContent: 'center',
+        }}>
+        <Flex
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <CustomImage
+            source={car_black}
+            flexStyle={{width: 244, height: 163}}
+          />
+        </Flex>
+      </Flex>
+    );
+  };
 
   return (
     <>
@@ -16,21 +42,37 @@ function App(): JSX.Element {
         angle={180}
         colors={['#292C31', '#000', '#000', '#292929']}
         style={{flex: 1}}>
-        <ScrollView contentContainerStyle={{flex: 1}}>
-          <Flex
-            style={{
-              flexDirection: 'column',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              backgroundColor: 'transparent',
-              zIndex: 1,
-              justifyContent: 'space-between',
-            }}>
-            {/* <SafeAreaView /> */}
-            {/* <Text
+        <Car_bg />
+        <SafeAreaView />
+        <Flex
+          style={{
+            zIndex: 2,
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            marginTop: 19,
+            marginBottom: 29,
+            marginHorizontal: 29,
+            flex: 1,
+          }}>
+          <Flex style={{padding: 0, alignItems: 'flex-end'}}>
+            <Back />
+          </Flex>
+          {/* <Flex style={{padding: 0}}>
+            <Flex style={{width: 50, height: 50, backgroundColor: 'red'}} />
+          </Flex> */}
+        </Flex>
+      </Gradient>
+    </>
+  );
+}
+
+export default App;
+
+{
+  /* <SafeAreaView /> */
+}
+{
+  /* <Text
           style={{
             color: '#fff',
             fontFamily: 'SF-Pro-Text-Regular',
@@ -40,28 +82,5 @@ function App(): JSX.Element {
             letterSpacing: 0.38,
           }}>
           CLIMATE
-        </Text> */}
-            <Flex style={{padding: 0}}>
-              <Back />
-            </Flex>
-            <Flex
-              style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <CustomImage
-                source={car_black}
-                flexStyle={{width: 244, height: 163}}
-              />
-            </Flex>
-            <Flex style={{padding: 0}}>
-              <Back />
-            </Flex>
-          </Flex>
-        </ScrollView>
-      </Gradient>
-    </>
-  );
+        </Text> */
 }
-
-export default App;
