@@ -55,7 +55,7 @@ function App(): JSX.Element {
             flex: 1,
           }}>
           <Flex style={{padding: 0, alignItems: 'flex-end'}}>
-            <Back />
+            <Back type="default" />
           </Flex>
         </Flex>
       </Gradient>
