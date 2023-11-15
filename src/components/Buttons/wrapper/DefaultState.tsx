@@ -5,6 +5,8 @@ import {styles} from '../../../utils/style';
 import Flex from '../../../wrappers/Flex';
 
 export default function DefaultState({children}: {children: React.ReactNode}) {
+  const border = 1.5;
+  const size = 50;
   return (
     <View
       style={{
@@ -19,16 +21,16 @@ export default function DefaultState({children}: {children: React.ReactNode}) {
       }}>
       <Flex
         style={{
-          borderWidth: 2,
+          borderWidth: border,
           borderRadius: 999,
           borderColor: 'rgba(0, 0, 0, 0.45)',
-          width: 52,
-          height: 52,
+          width: size + border,
+          height: size + border,
           ...styles.flexCenter,
         }}>
         <Svg
-          height="50"
-          width="50"
+          height={`${size}`}
+          width={`${size}`}
           style={{
             position: 'absolute',
           }}>
@@ -43,13 +45,18 @@ export default function DefaultState({children}: {children: React.ReactNode}) {
             <Stop offset="0%" stopColor="#5D6167" stopOpacity="1" />
             <Stop offset="100%" stopColor="#13151A" stopOpacity="1" />
           </RadialGradient>
-          <Circle cx="25" cy="25" r="25" fill="url(#grad)" />
+          <Circle
+            cx={`${size / 2}`}
+            cy={`${size / 2}`}
+            r={`${size / 2}`}
+            fill="url(#grad)"
+          />
         </Svg>
       </Flex>
       <View
         style={{
-          width: 62,
-          height: 62,
+          width: size + 12,
+          height: size + 12,
           borderRadius: 31,
           backgroundColor: 'transparent',
           ...styles.flexCenter,
