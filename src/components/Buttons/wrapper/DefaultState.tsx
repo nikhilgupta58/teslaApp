@@ -8,7 +8,7 @@ export default function DefaultState({children}: {children: React.ReactNode}) {
   return (
     <View
       style={{
-        shadowOpacity: 0.5,
+        shadowOpacity: 0.7,
         shadowRadius: 30,
         shadowOffset: {
           height: 10,
