@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {car_black} from './src/assets';
-import Back from './src/components/Buttons/Back';
+import Button from './src/components/Buttons';
 import {styles} from './src/utils/style';
 import CustomImage from './src/wrappers/CustomImage';
 import Flex from './src/wrappers/Flex';
@@ -55,7 +55,7 @@ function App(): JSX.Element {
             flex: 1,
           }}>
           <Flex style={{padding: 0, alignItems: 'flex-end'}}>
-            <Back type="default" />
+            <Button icon="settings" type="default" onPress={() => {}} />
           </Flex>
         </Flex>
       </Gradient>
