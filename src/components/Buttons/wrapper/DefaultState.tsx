@@ -29,7 +29,7 @@ export default function DefaultState({children}: {children: React.ReactNode}) {
 
   const EclipseShadow = () => (
     <ShadowWapper>
-      <Svg width={112} height={112} viewBox="0 0 112 112" fill="none">
+      <Svg width={100} height={100} viewBox="0 0 112 112" fill="none">
         <G filter="url(#filter0_df_306_58)">
           <Circle cx={51} cy={51} r={31} fill="url(#paint0_radial_306_58)" />
         </G>
@@ -108,7 +108,7 @@ export default function DefaultState({children}: {children: React.ReactNode}) {
           position: 'absolute',
           top: '50%',
           left: '50%',
-          transform: [{translateX: -51}, {translateY: -51}],
+          transform: [{translateX: -45}, {translateY: -45}],
         }}>
         <EclipseShadow />
       </View>
