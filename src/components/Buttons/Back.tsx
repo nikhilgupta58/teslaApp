@@ -9,19 +9,13 @@ export default function Back({
 }: {
   type: 'pressed' | 'default';
 }) {
-  if (type == 'pressed')
-    return (
-      <Pressable>
-        <PressedState>
-          <LeftArrowIcon />
-        </PressedState>
-      </Pressable>
-    );
+  const State = type == 'default' ? DefaultState : PressedState;
+
   return (
     <Pressable>
-      <DefaultState>
+      <State>
         <LeftArrowIcon />
-      </DefaultState>
+      </State>
     </Pressable>
   );
 }
