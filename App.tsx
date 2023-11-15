@@ -1,11 +1,9 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import {car_black} from './src/assets';
 import Button from './src/components/Buttons';
 import {styles} from './src/utils/style';
 import CustomImage from './src/wrappers/CustomImage';
-import CustomText from './src/wrappers/CustomText';
 import Flex from './src/wrappers/Flex';
 import Gradient from './src/wrappers/Gradient';
 const Car_bg = () => {
@@ -38,7 +36,8 @@ function App(): JSX.Element {
       <StatusBar barStyle={'light-content'} backgroundColor={'transparent'} />
       <Gradient
         angle={180}
-        colors={['#292C31', '#000', '#000', '#292929']}
+        // colors={['#292C31', '#000', '#000', '#292929']}
+        colors={['#000']}
         style={{flex: 1}}>
         <Car_bg />
         <SafeAreaView />
@@ -53,10 +52,19 @@ function App(): JSX.Element {
             flex: 1,
           }}>
           <Flex style={{alignItems: 'flex-end'}}>
-            <Button icon="settings" type="default" onPress={() => {}} />
+            {!lock ? (
+              <Button icon="settings" type="default" onPress={() => {}} />
+            ) : null}
           </Flex>
           <Flex style={{alignItems: 'center'}}>
-            <LinearGradient
+            <Button
+              icon={lock ? 'lock' : 'unLock'}
+              type={lock ? 'default' : 'pressed'}
+              onPress={() => {
+                setLock(e => !e);
+              }}
+            />
+            {/* <LinearGradient
               colors={['#17171C', '#18191B']}
               start={{x: 0, y: 0}}
               end={{x: 1, y: 0}}
@@ -91,7 +99,7 @@ function App(): JSX.Element {
                   }}
                 />
               </Flex>
-            </LinearGradient>
+            </LinearGradient> */}
           </Flex>
         </Flex>
       </Gradient>
