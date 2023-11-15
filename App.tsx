@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {car_black} from './src/assets';
 import Back from './src/components/Buttons/Back';
+import {styles} from './src/utils/style';
 import CustomImage from './src/wrappers/CustomImage';
 import Flex from './src/wrappers/Flex';
 import Gradient from './src/wrappers/Gradient';
@@ -23,8 +24,7 @@ function App(): JSX.Element {
         }}>
         <Flex
           style={{
-            justifyContent: 'center',
-            alignItems: 'center',
+            ...styles.flexCenter,
           }}>
           <CustomImage
             source={car_black}
@@ -57,9 +57,6 @@ function App(): JSX.Element {
           <Flex style={{padding: 0, alignItems: 'flex-end'}}>
             <Back />
           </Flex>
-          {/* <Flex style={{padding: 0}}>
-            <Flex style={{width: 50, height: 50, backgroundColor: 'red'}} />
-          </Flex> */}
         </Flex>
       </Gradient>
     </>

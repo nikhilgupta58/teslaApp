@@ -1,7 +1,14 @@
 import React from 'react';
-import CustomImage from '../../wrappers/CustomImage';
-import Flex from '../../wrappers/Flex';
+import {Pressable} from 'react-native';
+import LeftArrowIcon from '../../icons/LeftArrowIcon';
+import DefaultState from './wrapper/DefaultState';
 
 export default function Back() {
-  return <></>;
+  return (
+    <Pressable>
+      <DefaultState>
+        <LeftArrowIcon />
+      </DefaultState>
+    </Pressable>
+  );
 }

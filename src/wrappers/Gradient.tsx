@@ -10,6 +10,7 @@ interface IProps extends LinearGradientProps {
 }
 
 export default function Gradient({children, colors, ...props}: IProps) {
+  // return <View style={{flex: 1}}>{children}</View>;
   return (
     <LinearGradient colors={colors} {...props}>
       {children}
