@@ -28,13 +28,14 @@ const Knob = () => {
           shadowColor: 'rgba(0, 0, 0, 0.39)',
           shadowOpacity: 1,
           shadowRadius: 2,
-          borderRadius:40
+          borderRadius: 40,
         }}
       />
     );
   };
   return (
-    <View style={{position: 'absolute', top: -(height / 2), left: -3}}>
+    <View
+      style={{position: 'absolute', top: -(height / 2), left: -3, zIndex: 4}}>
       <Gradient
         colors={['#2E3236', '#141515']}
         start={{x: 0.0, y: 0.0}}
@@ -58,13 +59,53 @@ const Knob = () => {
 };
 
 export default function Slider() {
+  const ProgressBar = () => {
+    return (
+      <View style={styles.container}>
+        {
+          //@ts-ignore
+          <Gradient
+            colors={['#2FB8FF', '#9EECD9']}
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 0}}
+            style={styles.gradient}
+          />
+        }
+      </View>
+    );
+  };
+
   return (
     <View style={{flexGrow: 1, width: '100%'}}>
       <Track />
       <Knob />
+      <ProgressBar />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    height: 7.5,
+    width: 100,
+    position: 'absolute',
+    zIndex: 3,
+  },
+  gradient: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowOffset: {
+      width: 0.625,
+      height: 0.625,
+    },
+    shadowColor: '#002AD1',
+    shadowOpacity: 1,
+    shadowRadius: 4.375,
+    borderRadius: 25,
+  },
+});
 
 const SliderStyles = StyleSheet.create({
   myBox: {
@@ -80,6 +121,7 @@ const SliderStyles = StyleSheet.create({
     flexGrow: 1,
     width: '100%',
     borderRadius: 25,
+    zIndex: 2,
   },
 
   myInnerBox: {
