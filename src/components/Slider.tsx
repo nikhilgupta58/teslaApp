@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import {Animated, PanResponder, StyleSheet, View} from 'react-native';
 import {convertToNumber} from '../utils';
 import Flex from '../wrappers/Flex';
@@ -16,23 +16,16 @@ export default function Slider({
   const progress = convertToNumber(value, 0, trackWidth);
   const knobProgress = convertToNumber(value, -3, trackWidth - 3);
   const [x, setX] = React.useState(-3);
-  const dragX: any = useRef(new Animated.Value(0)).current;
 
-  const panResponder = useRef(
-    PanResponder.create({
+  const panResponder = React.useMemo(() => {
+    return PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
       onPanResponderMove: (_, gesture) => {
-        // Update the component's position only along the X-axis within the specified limits
-        const newX = dragX._value + gesture.dx;
-        console.log(newX);
-        if (newX >= -3 && newX <= trackWidth - 3) {
-          dragX.setValue(newX);
-          setX(newX);
-        }
+        setX(trackWidth);
       },
-    }),
-  ).current;
+    });
+  }, [trackWidth, value]);
 
   const Track = () => {
     const myViewRef: any = React.useRef(null);
@@ -90,7 +83,7 @@ export default function Slider({
       );
     };
     return (
-      <View
+      <Animated.View
         {...panResponder.panHandlers}
         style={{
           position: 'absolute',
@@ -117,7 +110,7 @@ export default function Slider({
             <Line />
           </Flex>
         </Gradient>
-      </View>
+      </Animated.View>
     );
   };
 
