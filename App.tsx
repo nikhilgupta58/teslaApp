@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StatusBar, View} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
 import {car_black} from './src/assets';
 import Button from './src/components/Buttons';
 import Slider from './src/components/Slider';
@@ -32,6 +32,7 @@ const Car_bg = () => {
 };
 function App(): JSX.Element {
   const [lock, setLock] = React.useState(true);
+  const [value, setValue] = React.useState(0);
   return (
     <>
       <StatusBar barStyle={'light-content'} backgroundColor={'transparent'} />
@@ -69,7 +70,7 @@ function App(): JSX.Element {
                 setLock(e => !e);
               }}
             /> */}
-            <Slider value={0} />
+            <Slider value={value} setValue={setValue} />
             {/* <LinearGradient
               colors={['#17171C', '#18191B']}
               start={{x: 0, y: 0}}
