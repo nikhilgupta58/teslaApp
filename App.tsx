@@ -6,6 +6,7 @@ import {styles} from './src/utils/style';
 import CustomImage from './src/wrappers/CustomImage';
 import Flex from './src/wrappers/Flex';
 import Gradient from './src/wrappers/Gradient';
+import Climate from './src/components/Climate';
 const Car_bg = () => {
   return (
     <Flex
@@ -64,6 +65,7 @@ function App(): JSX.Element {
                 setLock(e => !e);
               }}
             />
+
             {/* <LinearGradient
               colors={['#17171C', '#18191B']}
               start={{x: 0, y: 0}}
