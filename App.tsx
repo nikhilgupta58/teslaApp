@@ -6,7 +6,6 @@ import {styles} from './src/utils/style';
 import CustomImage from './src/wrappers/CustomImage';
 import Flex from './src/wrappers/Flex';
 import Gradient from './src/wrappers/Gradient';
-import Climate from './src/components/Climate';
 const Car_bg = () => {
   return (
     <Flex
