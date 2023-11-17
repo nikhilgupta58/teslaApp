@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
+import {SafeAreaView, StatusBar, View} from 'react-native';
 import {car_black} from './src/assets';
 import Button from './src/components/Buttons';
 import Slider from './src/components/Slider';
@@ -40,6 +40,7 @@ function App(): JSX.Element {
         // colors={['#292C31', '#000', '#000', '#292929']}
         colors={['#000']}
         style={{flex: 1}}>
+          
         <Car_bg />
         <SafeAreaView />
         <Flex
@@ -108,6 +109,7 @@ function App(): JSX.Element {
             </LinearGradient> */}
           </Flex>
         </Flex>
+       
       </Gradient>
     </>
   );
