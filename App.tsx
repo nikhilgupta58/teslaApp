@@ -40,7 +40,6 @@ function App(): JSX.Element {
         // colors={['#292C31', '#000', '#000', '#292929']}
         colors={['#000']}
         style={{flex: 1}}>
-          
         <Car_bg />
         <SafeAreaView />
         <Flex
@@ -70,7 +69,7 @@ function App(): JSX.Element {
                 setLock(e => !e);
               }}
             /> */}
-            <Slider />
+            <Slider value={10} />
             {/* <LinearGradient
               colors={['#17171C', '#18191B']}
               start={{x: 0, y: 0}}
@@ -109,7 +108,6 @@ function App(): JSX.Element {
             </LinearGradient> */}
           </Flex>
         </Flex>
-       
       </Gradient>
     </>
   );
