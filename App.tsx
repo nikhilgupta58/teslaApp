@@ -69,7 +69,7 @@ function App(): JSX.Element {
                 setLock(e => !e);
               }}
             /> */}
-            <Slider value={10} />
+            <Slider value={0} />
             {/* <LinearGradient
               colors={['#17171C', '#18191B']}
               start={{x: 0, y: 0}}

@@ -1,5 +1,5 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import React, {useRef} from 'react';
+import {Animated, PanResponder, StyleSheet, View} from 'react-native';
 import {convertToNumber} from '../utils';
 import Flex from '../wrappers/Flex';
 import Gradient from '../wrappers/Gradient';
@@ -15,6 +15,25 @@ export default function Slider({
   const [trackWidth, setTrackWidth] = React.useState(0);
   const progress = convertToNumber(value, 0, trackWidth);
   const knobProgress = convertToNumber(value, -3, trackWidth - 3);
+  const [x, setX] = React.useState(-3);
+  const dragX: any = useRef(new Animated.Value(0)).current;
+
+  const panResponder = useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderMove: (_, gesture) => {
+        // Update the component's position only along the X-axis within the specified limits
+        const newX = dragX._value + gesture.dx;
+        console.log(newX);
+        if (newX >= -3 && newX <= trackWidth - 3) {
+          dragX.setValue(newX);
+          setX(newX);
+        }
+      },
+    }),
+  ).current;
+
   const Track = () => {
     const myViewRef: any = React.useRef(null);
 
@@ -22,7 +41,6 @@ export default function Slider({
       if (myViewRef.current) {
         //@ts-ignore
         myViewRef.current.measure((x, y, width, height, pageX, pageY) => {
-          console.log(width);
           setTrackWidth(width);
         });
       }
@@ -73,11 +91,13 @@ export default function Slider({
     };
     return (
       <View
+        {...panResponder.panHandlers}
         style={{
           position: 'absolute',
           top: -(height / 2),
           left: knobProgress,
           zIndex: 4,
+          transform: [{translateX: x}],
         }}>
         <Gradient
           colors={['#2E3236', '#141515']}
