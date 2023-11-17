@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {car_black} from './src/assets';
 import Button from './src/components/Buttons';
+import Slider from './src/components/Slider';
 import {styles} from './src/utils/style';
 import CustomImage from './src/wrappers/CustomImage';
 import Flex from './src/wrappers/Flex';
@@ -56,15 +57,19 @@ function App(): JSX.Element {
               <Button icon="settings" type="default" onPress={() => {}} />
             ) : null}
           </Flex>
-          <Flex style={{alignItems: 'center'}}>
-            <Button
+          <Flex
+            style={{
+              alignItems: 'center',
+              flexDirection: 'column',
+            }}>
+            {/* <Button
               icon={lock ? 'lock' : 'unLock'}
               type={lock ? 'default' : 'pressed'}
               onPress={() => {
                 setLock(e => !e);
               }}
-            />
-
+            /> */}
+            <Slider />
             {/* <LinearGradient
               colors={['#17171C', '#18191B']}
               start={{x: 0, y: 0}}
