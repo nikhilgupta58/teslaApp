@@ -13,19 +13,23 @@ export default function Slider({
   setValue: (e: number) => void;
 }) {
   const [trackWidth, setTrackWidth] = React.useState(0);
-  const progress = convertToNumber(value, 0, trackWidth);
-  const knobProgress = convertToNumber(value, -3, trackWidth - 3);
-  const [x, setX] = React.useState(-3);
+//   const progress = convertToNumber(value, 0, trackWidth);
+  const progress = value
 
   const panResponder = React.useMemo(() => {
     return PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
       onPanResponderMove: (_, gesture) => {
-        setX(trackWidth);
+        const newValue = convertToNumber(gesture.moveX, 0, trackWidth);
+        if (newValue >= -3 && newValue <= trackWidth) {
+          setValue(Math.min(newValue, trackWidth));
+        }
       },
     });
   }, [trackWidth, value]);
+
+  console.log(value);
 
   const Track = () => {
     const myViewRef: any = React.useRef(null);
@@ -88,9 +92,8 @@ export default function Slider({
         style={{
           position: 'absolute',
           top: -(height / 2),
-          left: knobProgress,
+          left: progress,
           zIndex: 4,
-          transform: [{translateX: x}],
         }}>
         <Gradient
           colors={['#2E3236', '#141515']}
