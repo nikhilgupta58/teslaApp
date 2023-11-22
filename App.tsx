@@ -2,7 +2,6 @@ import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {car_black} from './src/assets';
 import Button from './src/components/Buttons';
-import CustomSlider from './src/components/Slider';
 import {styles} from './src/utils/style';
 import CustomImage from './src/wrappers/CustomImage';
 import Flex from './src/wrappers/Flex';
@@ -32,7 +31,6 @@ const Car_bg = () => {
 };
 function App(): JSX.Element {
   const [lock, setLock] = React.useState(true);
-  const [value, setValue] = React.useState(0);
   return (
     <>
       <StatusBar barStyle={'light-content'} backgroundColor={'transparent'} />
@@ -63,51 +61,13 @@ function App(): JSX.Element {
               alignItems: 'center',
               flexDirection: 'column',
             }}>
-            {/* <Button
+            <Button
               icon={lock ? 'lock' : 'unLock'}
               type={lock ? 'default' : 'pressed'}
               onPress={() => {
                 setLock(e => !e);
               }}
-            /> */}
-            <CustomSlider value={value} setValue={setValue} />
-            {/* <Battery value={0} /> */}
-            {/* <LinearGradient
-              colors={['#17171C', '#18191B']}
-              start={{x: 0, y: 0}}
-              end={{x: 1, y: 0}}
-              locations={[0, 0.4642]}
-              style={{
-                paddingHorizontal: 20,
-                paddingVertical: 15,
-                borderRadius: 40,
-              }}>
-              <Flex
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                }}>
-                <CustomText
-                  style={{
-                    fontSize: 17,
-                    fontWeight: '600',
-                    lineHeight: 22,
-                    letterSpacing: -0.408,
-                    marginRight: 20,
-                    width: 60,
-                    textAlign: 'center',
-                  }}>
-                  {lock ? 'Unlock' : 'Lock'}
-                </CustomText>
-                <Button
-                  icon={lock ? 'lock' : 'unLock'}
-                  type={lock ? 'default' : 'pressed'}
-                  onPress={() => {
-                    setLock(e => !e);
-                  }}
-                />
-              </Flex>
-            </LinearGradient> */}
+            />
           </Flex>
         </Flex>
       </Gradient>
@@ -116,20 +76,3 @@ function App(): JSX.Element {
 }
 
 export default App;
-
-{
-  /* <SafeAreaView /> */
-}
-{
-  /* <Text
-          style={{
-            color: '#fff',
-            fontFamily: 'SF-Pro-Text-Regular',
-            fontSize: 20,
-            fontWeight: '600',
-            lineHeight: 24,
-            letterSpacing: 0.38,
-          }}>
-          CLIMATE
-        </Text> */
-}
