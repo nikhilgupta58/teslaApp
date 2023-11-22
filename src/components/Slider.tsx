@@ -1,3 +1,4 @@
+import Slider from '@react-native-community/slider';
 import React from 'react';
 import {Animated, PanResponder, StyleSheet, View} from 'react-native';
 import {convertToNumber} from '../utils';
@@ -5,7 +6,7 @@ import Flex from '../wrappers/Flex';
 import Gradient from '../wrappers/Gradient';
 const height = 7.5;
 
-export default function Slider({
+export default function CustomSlider({
   value,
   setValue,
 }: {
@@ -13,8 +14,8 @@ export default function Slider({
   setValue: (e: number) => void;
 }) {
   const [trackWidth, setTrackWidth] = React.useState(0);
-//   const progress = convertToNumber(value, 0, trackWidth);
-  const progress = value
+  //   const progress = convertToNumber(value, 0, trackWidth);
+  const progress = value;
 
   const panResponder = React.useMemo(() => {
     return PanResponder.create({
@@ -29,7 +30,18 @@ export default function Slider({
     });
   }, [trackWidth, value]);
 
-  console.log(value);
+  return (
+    <Slider
+      style={{width: 250, height: 7.5}}
+      minimumValue={0}
+      maximumValue={1}
+      minimumTrackTintColor="#2FB8FF"
+      maximumTrackTintColor="#272A2E"
+      value={value}
+      onValueChange={e => setValue(e)}
+      thumbTintColor={'#212325'}
+    />
+  );
 
   const Track = () => {
     const myViewRef: any = React.useRef(null);
