@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
-import {car_black} from '../assets';
+import {car_black, neon_bg, white_car} from '../assets';
 import Button from '../components/Buttons';
 import {styles} from '../utils/style';
 import CustomImage from '../wrappers/CustomImage';
@@ -29,18 +29,58 @@ const Car_bg = () => {
     </Flex>
   );
 };
+
+const Car_unlock = () => {
+  const style_car: any = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: [{translateX: -(256 / 2)}, {translateY: -(207 / 2)}],
+  };
+  const window_width = 500;
+  return (
+    <Flex
+      style={{
+        borderRadius: 274,
+        flexDirection: 'column',
+        ...style_car,
+        width: 256,
+        height: 207,
+        zIndex: 1,
+        justifyContent: 'center',
+      }}>
+      <Flex
+        style={{
+          ...styles.flexCenter,
+        }}>
+        <CustomImage source={white_car} flexStyle={{width: 244, height: 163}} />
+      </Flex>
+      <CustomImage
+        source={neon_bg}
+        flexStyle={{
+          ...style_car,
+          width: window_width,
+          height: 500,
+          transform: [
+            {translateX: -(window_width / 2)},
+            {translateY: -(500 / 2)},
+          ],
+        }}
+      />
+    </Flex>
+  );
+};
+
 export default function LockScreen() {
   const [lock, setLock] = React.useState(true);
-
+  const gradientColor = lock
+    ? ['#292C31', '#000', '#000', '#292929']
+    : ['#2A2D32', '#161719'];
   return (
     <>
       <StatusBar barStyle={'light-content'} backgroundColor={'transparent'} />
-      <Gradient
-        angle={180}
-        colors={['#292C31', '#000', '#000', '#292929']}
-        // colors={['#000']}
-        style={{flex: 1}}>
-        <Car_bg />
+      <Gradient angle={180} colors={gradientColor} style={{flex: 1}}>
+        {lock ? <Car_bg /> : <Car_unlock />}
         <SafeAreaView />
         <Flex
           style={{
