@@ -1,8 +1,8 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 import {car_black} from './src/assets';
+import Battery from './src/components/Battery';
 import Button from './src/components/Buttons';
-import Slider from './src/components/Slider';
 import {styles} from './src/utils/style';
 import CustomImage from './src/wrappers/CustomImage';
 import Flex from './src/wrappers/Flex';
@@ -70,7 +70,8 @@ function App(): JSX.Element {
                 setLock(e => !e);
               }}
             /> */}
-            <Slider value={value} setValue={setValue} />
+            {/* <Slider value={value} setValue={setValue} /> */}
+            <Battery />
             {/* <LinearGradient
               colors={['#17171C', '#18191B']}
               start={{x: 0, y: 0}}
