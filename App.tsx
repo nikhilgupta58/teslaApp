@@ -71,7 +71,7 @@ function App(): JSX.Element {
               }}
             /> */}
             {/* <Slider value={value} setValue={setValue} /> */}
-            <Battery />
+            <Battery value={20} />
             {/* <LinearGradient
               colors={['#17171C', '#18191B']}
               start={{x: 0, y: 0}}
