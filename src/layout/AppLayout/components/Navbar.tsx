@@ -1,12 +1,12 @@
-import { useRoute } from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
 import React from 'react';
-import { Dimensions, Pressable } from 'react-native';
-import Svg, { Path } from 'react-native-svg';
-import { navigate } from '../../../RootNavigation';
-import { neon_bg } from '../../../assets';
+import {Dimensions, Pressable} from 'react-native';
+import Svg, {Path} from 'react-native-svg';
+import {navigate} from '../../../RootNavigation';
+import {neon_bg} from '../../../assets';
 import PlusIcon from '../../../icons/PlusIcon';
-import { ChargingScreenRoute, DashboardScreenRoute } from '../../../utils/route';
-import { styles } from '../../../utils/style';
+import {ChargingScreenRoute, DashboardScreenRoute} from '../../../utils/route';
+import {styles} from '../../../utils/style';
 import CustomImage from '../../../wrappers/CustomImage';
 import Flex from '../../../wrappers/Flex';
 import Gradient from '../../../wrappers/Gradient';
@@ -129,6 +129,10 @@ export default function Navbar() {
           justifyContent: 'space-between',
           marginHorizontal: 22,
           height: 55,
+          position: 'absolute',
+          bottom: 0,
+          width: width - 40,
+          left: 0,
         }}>
         <Flex
           style={{
