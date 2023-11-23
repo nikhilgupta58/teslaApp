@@ -4,17 +4,30 @@ import MiddleClimateIcon from '../../../icons/MiddleClimateIcon';
 import RightArrow from '../../../icons/RIghtArrow';
 import CustomText from '../../../wrappers/CustomText';
 import Flex from '../../../wrappers/Flex';
+import CarControlIcon from '../../../icons/ControlCarIcon';
+import ControlClimateIcon from '../../../icons/ControlClimateIcon';
+import ControlLocationIcon from '../../../icons/ControlLocationIcon';
 
 const item = [
   {
-    icon: MiddleClimateIcon,
+    icon: CarControlIcon,
     title: 'Control',
     subTitle: '',
   },
   {
-    icon: MiddleClimateIcon,
+    icon: ControlClimateIcon,
     title: 'Climate',
     subTitle: 'Interior 20° C',
+  },
+  {
+    icon: ControlLocationIcon,
+    title: 'Location',
+    subTitle: '81 rue St-Chales',
+  },
+  {
+    icon: ControlClimateIcon,
+    title: 'Security',
+    subTitle: '',
   },
 ];
 
