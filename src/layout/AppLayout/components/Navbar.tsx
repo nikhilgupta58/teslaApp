@@ -73,7 +73,7 @@ export default function Navbar() {
           <Path
             d={pathD}
             transform={`translate(0, ${innerShadowOffset})`}
-            fill="#191818"
+            fill="#0f0e10"
           />
         </Svg>
         <PlusCta />
