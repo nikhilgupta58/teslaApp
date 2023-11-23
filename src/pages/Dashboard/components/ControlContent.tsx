@@ -1,12 +1,12 @@
 import React from 'react';
 import {Pressable} from 'react-native';
-import MiddleClimateIcon from '../../../icons/MiddleClimateIcon';
+import MiddleClimateIcon from '../icon/MiddleClimateIcon';
 import RightArrow from '../../../icons/RIghtArrow';
 import CustomText from '../../../wrappers/CustomText';
 import Flex from '../../../wrappers/Flex';
-import CarControlIcon from '../../../icons/ControlCarIcon';
-import ControlClimateIcon from '../../../icons/ControlClimateIcon';
-import ControlLocationIcon from '../../../icons/ControlLocationIcon';
+import CarControlIcon from '../icon/ControlCarIcon';
+import ControlClimateIcon from '../icon/ControlClimateIcon';
+import ControlLocationIcon from '../icon/ControlLocationIcon';
 
 const item = [
   {

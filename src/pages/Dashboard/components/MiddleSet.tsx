@@ -1,9 +1,9 @@
 import React from 'react';
 import {View} from 'react-native';
-import MiddleChargeIcon from '../../../icons/MiddleChargeIcon';
-import MiddleClimateIcon from '../../../icons/MiddleClimateIcon';
-import MiddleLockIcon from '../../../icons/MiddleLockIcon';
-import MiddleOpenIcon from '../../../icons/MiddleOpenIcon';
+import MiddleChargeIcon from '../icon/MiddleChargeIcon';
+import MiddleClimateIcon from '../icon/MiddleClimateIcon';
+import MiddleLockIcon from '../icon/MiddleLockIcon';
+import MiddleOpenIcon from '../icon/MiddleOpenIcon';
 import Flex from '../../../wrappers/Flex';
 
 const items = [
