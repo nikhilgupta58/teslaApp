@@ -1,5 +1,6 @@
 import React from 'react';
 import {Dimensions, ScrollView} from 'react-native';
+import {getStatusBarHeight} from 'react-native-safearea-height';
 import Flex from '../../wrappers/Flex';
 import Gradient from '../../wrappers/Gradient';
 import Navbar from './components/Navbar';
@@ -11,7 +12,8 @@ export default function AppLayoutView() {
     <Gradient
       colors={['#2A2D32', '#131313']}
       style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <ScrollView contentContainerStyle={{flex: 1}}>
+      <ScrollView
+        contentContainerStyle={{flex: 1, paddingTop: getStatusBarHeight()}}>
         <ScrollView
           showsVerticalScrollIndicator={false}
           style={{

@@ -14,6 +14,7 @@ import TabFour from '../tabs/tabFour';
 import TabOne from '../tabs/tabOne';
 import TabThree from '../tabs/tabThree';
 import TabTwo from '../tabs/tabTwo';
+
 const pathD = `
 M0 35.2235
 C0 31.8714 1.29483 28.6489 3.61415 26.2287
@@ -87,32 +88,35 @@ export default function Navbar() {
     const defaultColor = '#626567';
     const activeProp = active ? {} : {color: defaultColor};
     const Comp = component;
-
+    const onPress = () => {
+      if (screenName) {
+        navigate(screenName);
+      }
+    };
     return (
-      <Pressable
-        onPress={e => {
-          e.stopPropagation();
-          console.log(screenName);
-          if (screenName) {
-            navigate(screenName);
-          }
-        }}>
-        <Flex style={{width: 40, height: 40, ...styles.flexCenter}}>
-          <Comp {...activeProp} />
+      <>
+        <Flex
+          style={{
+            width: 40,
+            height: 40,
+            ...styles.flexCenter,
+            position: 'relative',
+          }}>
+          <Pressable onPress={onPress}>
+            <Comp {...activeProp} />
+          </Pressable>
           {active ? (
             <CustomImage
-              source={neon_bg}
-              style={{
+              flexStyle={{
                 position: 'absolute',
-                width: 160,
-                height: 300,
-                top: -160,
-                left: -80,
+                height: 60,
+                width: frameWidth,
               }}
+              source={neon_bg}
             />
           ) : null}
         </Flex>
-      </Pressable>
+      </>
     );
   };
 
