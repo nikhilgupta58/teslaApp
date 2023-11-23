@@ -3,8 +3,10 @@ import React from 'react';
 import Button from '../../components/Buttons';
 import CustomText from '../../wrappers/CustomText';
 import Flex from '../../wrappers/Flex';
+import {useClimateContext} from './utils/context';
 
 export default function ClimateView() {
+  const {setIsOpen} = useClimateContext();
   const navigation = useNavigation();
   return (
     <Flex style={{flex: 1}}>
@@ -33,7 +35,7 @@ export default function ClimateView() {
             CLIMATE
           </CustomText>
         </Flex>
-        <Button icon={'settings'} />
+        <Button onPress={() => setIsOpen(true)} icon={'settings'} />
       </Flex>
     </Flex>
   );
