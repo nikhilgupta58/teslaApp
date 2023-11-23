@@ -16,9 +16,9 @@ export default function AppLayoutView() {
       <ScrollView
         contentContainerStyle={{
           flex: 1,
-          paddingTop: getStatusBarHeight() + padding,
+          paddingTop: getStatusBarHeight(),
           paddingBottom: padding,
-          paddingHorizontal: padding,
+          width: Dimensions.get('window').width,
         }}>
         <ScrollView
           showsVerticalScrollIndicator={false}

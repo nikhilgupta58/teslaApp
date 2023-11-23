@@ -4,12 +4,12 @@ import {DashboardContext} from './utils/context';
 import {AppLayout} from '../../layout/AppLayout';
 
 export default function DashboardContainer() {
-  const [count, setCount] = React.useState(1);
+  const padding = 30;
   return (
     <AppLayout>
       <DashboardContext.Provider
         value={{
-          count: count,
+          padding,
         }}>
         <DashboardView />
       </DashboardContext.Provider>
