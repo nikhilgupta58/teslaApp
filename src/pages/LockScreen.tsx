@@ -6,6 +6,8 @@ import {styles} from '../utils/style';
 import CustomImage from '../wrappers/CustomImage';
 import Flex from '../wrappers/Flex';
 import Gradient from '../wrappers/Gradient';
+import {navigate} from '../RootNavigation';
+import {DashboardScreenRoute} from '../utils/route';
 const Car_bg = () => {
   return (
     <Flex
@@ -94,7 +96,13 @@ export default function LockScreen() {
           }}>
           <Flex style={{alignItems: 'flex-end'}}>
             {!lock ? (
-              <Button icon="settings" type="default" onPress={() => {}} />
+              <Button
+                icon="settings"
+                type="default"
+                onPress={() => {
+                  navigate(DashboardScreenRoute);
+                }}
+              />
             ) : null}
           </Flex>
           <Flex

@@ -5,6 +5,7 @@ import Svg, {Path} from 'react-native-svg';
 import {navigate} from '../../../RootNavigation';
 import {neon_bg} from '../../../assets';
 import PlusIcon from '../../../icons/PlusIcon';
+import {ChargingScreenRoute, DashboardScreenRoute} from '../../../utils/route';
 import {styles} from '../../../utils/style';
 import CustomImage from '../../../wrappers/CustomImage';
 import Flex from '../../../wrappers/Flex';
@@ -35,38 +36,6 @@ Z
 `;
 
 const innerShadowOffset = 2;
-
-const Tab = ({component, screen = null}: any) => {
-//   const route = useRoute();
-//   const currentScreenName = route.name;
-  const active = false;
-  const defaultColor = '#626567';
-  const activeProp = active ? {} : {color: defaultColor};
-  const Comp = component;
-
-  return (
-    <Pressable
-      onPress={() => {
-        if (screen) navigate(screen);
-      }}>
-      <Flex style={{width: 40, height: 40, ...styles.flexCenter}}>
-        <Comp {...activeProp} />
-        {active ? (
-          <CustomImage
-            source={neon_bg}
-            style={{
-              position: 'absolute',
-              width: 160,
-              height: 300,
-              top: -160,
-              left: -80,
-            }}
-          />
-        ) : null}
-      </Flex>
-    </Pressable>
-  );
-};
 
 export default function Navbar() {
   const width = Dimensions.get('screen').width;
@@ -111,6 +80,42 @@ export default function Navbar() {
     );
   };
 
+  const Tab = ({component, screenName = null}: any) => {
+    const route = useRoute();
+    const currentScreenName = route.name;
+    const active = currentScreenName === screenName;
+    const defaultColor = '#626567';
+    const activeProp = active ? {} : {color: defaultColor};
+    const Comp = component;
+
+    return (
+      <Pressable
+        onPress={e => {
+          e.stopPropagation();
+          console.log(screenName);
+          if (screenName) {
+            navigate(screenName);
+          }
+        }}>
+        <Flex style={{width: 40, height: 40, ...styles.flexCenter}}>
+          <Comp {...activeProp} />
+          {active ? (
+            <CustomImage
+              source={neon_bg}
+              style={{
+                position: 'absolute',
+                width: 160,
+                height: 300,
+                top: -160,
+                left: -80,
+              }}
+            />
+          ) : null}
+        </Flex>
+      </Pressable>
+    );
+  };
+
   return (
     <Flex style={{width: width}}>
       <Frame />
@@ -127,8 +132,8 @@ export default function Navbar() {
             width: frameWidth,
             justifyContent: 'space-between',
           }}>
-          <Tab component={TabOne} />
-          <Tab component={TabTwo} />
+          <Tab component={TabOne} screenName={DashboardScreenRoute} />
+          <Tab component={TabTwo} screenName={ChargingScreenRoute} />
         </Flex>
         <Flex
           style={{
