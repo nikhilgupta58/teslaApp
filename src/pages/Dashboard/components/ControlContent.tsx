@@ -50,6 +50,7 @@ export default function ControlContent() {
         const Icon = row?.icon || null;
         return (
           <Pressable
+            key={id}
             onPress={() => {
               if (row?.screen) navigate(row?.screen);
             }}>

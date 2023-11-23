@@ -4,10 +4,9 @@ import ClimateView from './Climate.view';
 import {ClimateContext} from './utils/context';
 
 export default function ClimateContainer() {
-  const [isOpen, setIsOpen] = React.useState(false);
   return (
     <AppLayout>
-      <ClimateContext.Provider value={{setIsOpen}}>
+      <ClimateContext.Provider value={{}}>
         <ClimateView />
       </ClimateContext.Provider>
     </AppLayout>

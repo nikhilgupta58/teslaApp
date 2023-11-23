@@ -1,6 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import Button from '../../components/Buttons';
+import ProgressBar from '../../components/ProgressBar';
 import CustomText from '../../wrappers/CustomText';
 import Flex from '../../wrappers/Flex';
 import {useClimateContext} from './utils/context';
@@ -9,7 +10,13 @@ export default function ClimateView() {
   const {setIsOpen} = useClimateContext();
   const navigation = useNavigation();
   return (
-    <Flex style={{flex: 1}}>
+    <Flex
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        width: '100%',
+        alignItems: 'center',
+      }}>
       <Flex
         style={{
           flex: 1,
@@ -17,6 +24,7 @@ export default function ClimateView() {
           justifyContent: 'space-between',
           alignItems: 'center',
           padding: 30,
+          width: '100%',
         }}>
         <Button
           onPress={() => {
@@ -37,6 +45,7 @@ export default function ClimateView() {
         </Flex>
         <Button onPress={() => setIsOpen(true)} icon={'settings'} />
       </Flex>
+      <ProgressBar />
     </Flex>
   );
 }
