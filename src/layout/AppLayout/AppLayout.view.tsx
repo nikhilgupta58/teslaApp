@@ -7,7 +7,7 @@ import Navbar from './components/Navbar';
 import {useAppLayoutContext} from './utils/context';
 
 export default function AppLayoutView() {
-  const {children} = useAppLayoutContext();
+  const {children, showNav} = useAppLayoutContext();
   const padding = 20;
   return (
     <Gradient
@@ -26,10 +26,12 @@ export default function AppLayoutView() {
             height: Dimensions.get('screen').height,
             backgroundColor: 'transparent',
           }}>
-          <Flex style={{flex: 1, marginBottom: 150}}>{children}</Flex>
+          <Flex style={{flex: 1, marginBottom: showNav ? 150 : 0}}>
+            {children}
+          </Flex>
         </ScrollView>
       </ScrollView>
-      <Navbar />
+      {showNav ? <Navbar /> : null}
     </Gradient>
   );
 }

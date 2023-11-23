@@ -1,7 +1,8 @@
 import React from 'react';
 import {Pressable} from 'react-native';
-import MiddleClimateIcon from '../icon/MiddleClimateIcon';
+import {navigate} from '../../../RootNavigation';
 import RightArrow from '../../../icons/RIghtArrow';
+import {ClimateScreenRoute} from '../../../utils/route';
 import CustomText from '../../../wrappers/CustomText';
 import Flex from '../../../wrappers/Flex';
 import CarControlIcon from '../icon/ControlCarIcon';
@@ -18,6 +19,7 @@ const item = [
     icon: ControlClimateIcon,
     title: 'Climate',
     subTitle: 'Interior 20° C',
+    screen: ClimateScreenRoute,
   },
   {
     icon: ControlLocationIcon,
@@ -47,7 +49,10 @@ export default function ControlContent() {
       {item?.map((row, id) => {
         const Icon = row?.icon || null;
         return (
-          <Pressable>
+          <Pressable
+            onPress={() => {
+              if (row?.screen) navigate(row?.screen);
+            }}>
             <Flex
               style={{
                 paddingVertical: 20,
