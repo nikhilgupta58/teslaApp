@@ -8,12 +8,18 @@ import {useAppLayoutContext} from './utils/context';
 
 export default function AppLayoutView() {
   const {children} = useAppLayoutContext();
+  const padding = 20;
   return (
     <Gradient
       colors={['#2A2D32', '#131313']}
       style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <ScrollView
-        contentContainerStyle={{flex: 1, paddingTop: getStatusBarHeight()}}>
+        contentContainerStyle={{
+          flex: 1,
+          paddingTop: getStatusBarHeight() + padding,
+          paddingBottom: padding,
+          paddingHorizontal: padding,
+        }}>
         <ScrollView
           showsVerticalScrollIndicator={false}
           style={{
