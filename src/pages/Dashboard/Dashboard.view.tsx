@@ -4,6 +4,7 @@ import Button from '../../components/Buttons';
 import CustomImage from '../../wrappers/CustomImage';
 import CustomText from '../../wrappers/CustomText';
 import Flex from '../../wrappers/Flex';
+import ControlContent from './components/ControlContent';
 import MiddleSet from './components/MiddleSet';
 import {useDashboardContext} from './utils/context';
 
@@ -54,6 +55,7 @@ export default function DashboardView() {
         />
       </Flex>
       <MiddleSet />
+      <ControlContent />
     </Flex>
   );
 }
