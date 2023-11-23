@@ -1,9 +1,18 @@
+import {useRoute} from '@react-navigation/native';
 import React from 'react';
-import {Dimensions} from 'react-native';
+import {Dimensions, Pressable} from 'react-native';
 import Svg, {Path} from 'react-native-svg';
+import {navigate} from '../../../RootNavigation';
+import {neon_bg} from '../../../assets';
 import PlusIcon from '../../../icons/PlusIcon';
+import {styles} from '../../../utils/style';
+import CustomImage from '../../../wrappers/CustomImage';
 import Flex from '../../../wrappers/Flex';
 import Gradient from '../../../wrappers/Gradient';
+import TabFour from '../tabs/tabFour';
+import TabOne from '../tabs/tabOne';
+import TabThree from '../tabs/tabThree';
+import TabTwo from '../tabs/tabTwo';
 const pathD = `
 M0 35.2235
 C0 31.8714 1.29483 28.6489 3.61415 26.2287
@@ -27,9 +36,41 @@ Z
 
 const innerShadowOffset = 2;
 
+const Tab = ({component, screen = null}: any) => {
+//   const route = useRoute();
+//   const currentScreenName = route.name;
+  const active = false;
+  const defaultColor = '#626567';
+  const activeProp = active ? {} : {color: defaultColor};
+  const Comp = component;
+
+  return (
+    <Pressable
+      onPress={() => {
+        if (screen) navigate(screen);
+      }}>
+      <Flex style={{width: 40, height: 40, ...styles.flexCenter}}>
+        <Comp {...activeProp} />
+        {active ? (
+          <CustomImage
+            source={neon_bg}
+            style={{
+              position: 'absolute',
+              width: 160,
+              height: 300,
+              top: -160,
+              left: -80,
+            }}
+          />
+        ) : null}
+      </Flex>
+    </Pressable>
+  );
+};
+
 export default function Navbar() {
   const width = Dimensions.get('screen').width;
-
+  const frameWidth = width / 2 - 80;
   const PlusCta = () => {
     return (
       <Gradient
@@ -45,8 +86,7 @@ export default function Navbar() {
           left: '50%',
           transform: [{translateX: -34}],
           top: -60,
-          justifyContent: 'center',
-          alignItems: 'center',
+          ...styles.flexCenter,
           flex: 1,
           borderColor: '#ffffff1a',
         }}>
@@ -72,8 +112,34 @@ export default function Navbar() {
   };
 
   return (
-    <Flex style={{width: width, }}>
+    <Flex style={{width: width}}>
       <Frame />
+      <Flex
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginHorizontal: 22,
+          height: 55,
+        }}>
+        <Flex
+          style={{
+            flexDirection: 'row',
+            width: frameWidth,
+            justifyContent: 'space-between',
+          }}>
+          <Tab component={TabOne} />
+          <Tab component={TabTwo} />
+        </Flex>
+        <Flex
+          style={{
+            flexDirection: 'row',
+            width: frameWidth,
+            justifyContent: 'space-between',
+          }}>
+          <Tab component={TabThree} />
+          <Tab component={TabFour} />
+        </Flex>
+      </Flex>
     </Flex>
   );
 }
