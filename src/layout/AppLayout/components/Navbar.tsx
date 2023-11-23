@@ -1,7 +1,9 @@
 import React from 'react';
 import {Dimensions} from 'react-native';
 import Svg, {Path} from 'react-native-svg';
+import PlusIcon from '../../../icons/PlusIcon';
 import Flex from '../../../wrappers/Flex';
+import Gradient from '../../../wrappers/Gradient';
 const pathD = `
 M0 35.2235
 C0 31.8714 1.29483 28.6489 3.61415 26.2287
@@ -27,6 +29,32 @@ const innerShadowOffset = 2;
 
 export default function Navbar() {
   const width = Dimensions.get('screen').width;
+
+  const PlusCta = () => {
+    return (
+      <Gradient
+        colors={['#000', '#212121', '#212121', '#545659']}
+        end={{x: 0, y: 1}}
+        start={{x: 1, y: 0}}
+        style={{
+          width: 68,
+          height: 68,
+          borderWidth: 2,
+          borderRadius: 999,
+          position: 'absolute',
+          left: '50%',
+          transform: [{translateX: -34}],
+          top: -60,
+          justifyContent: 'center',
+          alignItems: 'center',
+          flex: 1,
+          borderColor: '#ffffff1a',
+        }}>
+        <PlusIcon />
+      </Gradient>
+    );
+  };
+
   const Frame = () => {
     return (
       <Flex style={{position: 'absolute', bottom: 0, left: 0}}>
@@ -35,15 +63,16 @@ export default function Navbar() {
           <Path
             d={pathD}
             transform={`translate(0, ${innerShadowOffset})`}
-            fill="black"
-            fillOpacity={0.44}
+            fill="#191818"
           />
         </Svg>
+        <PlusCta />
       </Flex>
     );
   };
+
   return (
-    <Flex style={{width: width}}>
+    <Flex style={{width: width, }}>
       <Frame />
     </Flex>
   );
