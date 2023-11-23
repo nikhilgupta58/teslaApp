@@ -20,15 +20,26 @@ export default function DefaultState({
   const ShadowWapper = ({children}: any) => (
     <View
       style={{
-        shadowOpacity: 0.3,
-        shadowRadius: 20,
+        shadowOpacity: 0.6,
+        shadowRadius: 15,
         shadowOffset: {
-          height: 0,
-          width: 0,
+          height: 12,
+          width: 12,
         },
-        shadowColor: '#bebebe',
+        shadowColor: '#000',
       }}>
-      {children}
+      <View
+        style={{
+          shadowOpacity: 0.3,
+          shadowRadius: 20,
+          shadowOffset: {
+            height: -5,
+            width: -5,
+          },
+          shadowColor: '#bebebe',
+        }}>
+        {children}
+      </View>
     </View>
   );
 
