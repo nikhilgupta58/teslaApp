@@ -8,7 +8,7 @@ import ClipContent from './components/ClipContent';
 import {useClimateContext} from './utils/context';
 
 export default function ClimateView() {
-  const {setIsOpen, active, climate} = useClimateContext();
+  const {active, climate} = useClimateContext();
   const navigation = useNavigation();
   return (
     <Flex
@@ -44,7 +44,7 @@ export default function ClimateView() {
             CLIMATE
           </CustomText>
         </Flex>
-        <Button onPress={() => setIsOpen(true)} icon={'settings'} />
+        <Button icon={'settings'} />
       </Flex>
       <ProgressBar active={active} value={climate} />
       <ClipContent />

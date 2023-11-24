@@ -10,7 +10,7 @@ import Svg, {
 } from 'react-native-svg';
 import {convertToNumber} from '../utils';
 /* SVGR has dropped some elements not supported by react-native-svg: filter */
-const Battery = ({value, ...props}: any) => {
+const Battery = ({value = 0, ...props}: any) => {
   const calcD1 = convertToNumber(value, 6, 284);
   const calcD2 = convertToNumber(value, 16.5, 273.5);
   const calcD3 = convertToNumber(value, 18.5, 273.5);
