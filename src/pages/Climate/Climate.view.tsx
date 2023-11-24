@@ -4,10 +4,11 @@ import Button from '../../components/Buttons';
 import ProgressBar from '../../components/ProgressBar';
 import CustomText from '../../wrappers/CustomText';
 import Flex from '../../wrappers/Flex';
+import ClipContent from './components/ClipContent';
 import {useClimateContext} from './utils/context';
 
 export default function ClimateView() {
-  const {setIsOpen} = useClimateContext();
+  const {setIsOpen, active, climate} = useClimateContext();
   const navigation = useNavigation();
   return (
     <Flex
@@ -45,11 +46,8 @@ export default function ClimateView() {
         </Flex>
         <Button onPress={() => setIsOpen(true)} icon={'settings'} />
       </Flex>
-      <ProgressBar />
-      <ProgressBar />
-      <ProgressBar />
-      <ProgressBar />
-      <ProgressBar />
+      <ProgressBar active={active} value={climate} />
+      <ClipContent />
     </Flex>
   );
 }

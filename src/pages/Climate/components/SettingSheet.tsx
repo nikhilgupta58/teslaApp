@@ -4,9 +4,9 @@ import CustomBottomSheet from '../../../wrappers/CustomBottomSheet';
 import Flex from '../../../wrappers/Flex';
 import Gradient from '../../../wrappers/Gradient';
 
-export default function SettingSheet() {
+export default function SettingSheet({isOpen, setOpen}: any) {
   return (
-    <CustomBottomSheet isOpen={true} setOpen={e => console.log(e)}>
+    <CustomBottomSheet isOpen={isOpen} setOpen={setOpen}>
       <BlurView style={{flex: 1}} blurType="dark" blurAmount={5}>
         <Gradient
           colors={['#0000002a', 'rgba(131, 223, 226, 0.3)']}

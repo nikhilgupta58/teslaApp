@@ -4,7 +4,7 @@ import Svg, {Defs, LinearGradient, Path, Stop} from 'react-native-svg';
 import CustomText from '../wrappers/CustomText';
 import Gradient from '../wrappers/Gradient';
 
-export default function ProgressBar() {
+export default function ProgressBar({active = false, value = 0}) {
   const size = 180;
   const OuterCircle = () => {
     return (
@@ -125,17 +125,21 @@ export default function ProgressBar() {
       }}>
       <OuterCircle />
       <InnerCircle />
-      <CustomText
-        style={{
-          position: 'absolute',
-          color: '#5C5C62',
-          fontSize: 54,
-          fontWeight: '400',
-          letterSpacing: 0.39,
-        }}>
-        40
-      </CustomText>
-      <Progress />
+      {active ? (
+        <>
+          <CustomText
+            style={{
+              position: 'absolute',
+              color: '#5C5C62',
+              fontSize: 54,
+              fontWeight: '400',
+              letterSpacing: 0.39,
+            }}>
+            {Math.floor(value * 100)}
+          </CustomText>
+          <Progress />
+        </>
+      ) : null}
     </View>
   );
 }
