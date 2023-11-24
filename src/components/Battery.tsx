@@ -9,6 +9,7 @@ import Svg, {
   Stop,
 } from 'react-native-svg';
 import {convertToNumber} from '../utils';
+import {Dimensions} from 'react-native';
 /* SVGR has dropped some elements not supported by react-native-svg: filter */
 const Battery = ({value = 0, ...props}: any) => {
   const calcD1 = convertToNumber(value, 6, 284);
@@ -32,7 +33,12 @@ const Battery = ({value = 0, ...props}: any) => {
   // d="M8.5 111.403V124.5C8.5 125.605 9.39543 126.5 10.5 126.5H176.5V111.383C176.5 111.13 176.452 110.879 176.359 110.644L167.668 88.7618C167.365 88 166.629 87.5 165.809 87.5H19.7109C18.9059 87.5 18.1794 87.9826 17.8673 88.7247L8.65638 110.628C8.55317 110.874 8.5 111.137 8.5 111.403Z"
 
   return (
-    <Svg width={288} height={135} viewBox="0 0 288 135" fill="none" {...props}>
+    <Svg
+      width={Dimensions.get('screen').width - 60}
+      height={135}
+      viewBox="0 0 288 135"
+      fill="none"
+      {...props}>
       <G filter="url(#filter0_bi_301_656)">
         <Path
           d="M8.513 111.403L8.93756 124.564C8.97237 125.643 9.85705 126.5 10.9365 126.5H279.5C280.605 126.5 281.5 125.605 281.5 124.5V111.351C281.5 111.119 281.46 110.888 281.381 110.67L273.477 88.8197C273.191 88.0277 272.439 87.5 271.597 87.5H18.8757C18.0471 87.5 17.3043 88.0109 17.008 88.7847L8.64425 110.623C8.54904 110.872 8.50442 111.137 8.513 111.403Z"

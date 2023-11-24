@@ -1,13 +1,14 @@
-import React from 'react';
-import {useChargingContext} from './utils/context';
-import CustomText from '../../wrappers/CustomText';
-import Flex from '../../wrappers/Flex';
 import {useNavigation} from '@react-navigation/native';
-import Button from '../../components/Buttons';
-import CustomImage from '../../wrappers/CustomImage';
+import React from 'react';
+import {Dimensions, View} from 'react-native';
 import {charging_car} from '../../assets';
 import Battery from '../../components/Battery';
-import {Dimensions, View} from 'react-native';
+import Button from '../../components/Buttons';
+import CustomImage from '../../wrappers/CustomImage';
+import CustomText from '../../wrappers/CustomText';
+import Flex from '../../wrappers/Flex';
+import Gradient from '../../wrappers/Gradient';
+import {useChargingContext} from './utils/context';
 
 export default function ChargingView() {
   const navigation = useNavigation();
@@ -68,6 +69,56 @@ export default function ChargingView() {
           }}>
           {value}%
         </CustomText>
+        <Flex style={{justifyContent: 'center', width: '100%'}}>
+          <View
+            style={{
+              width: Dimensions.get('screen').width - 80,
+            }}>
+            <Flex
+              style={{
+                width: '100%',
+                flexDirection: 'row',
+                justifyContent: 'flex-end',
+              }}>
+              <Flex>
+                {
+                  //@ts-ignore
+                  <Gradient
+                    colors={['#2FB8FF', '#9EECD9']}
+                    style={{height: 9, width: 2, alignSelf: 'flex-end'}}
+                  />
+                }
+                <CustomText
+                  style={{
+                    color: '#fff',
+                    fontSize: 13,
+                    letterSpacing: -0.07,
+                    fontWeight: '400',
+                  }}>
+                  70%
+                </CustomText>
+              </Flex>
+              <Flex style={{marginLeft: 40}}>
+                {
+                  //@ts-ignore
+                  <Gradient
+                    colors={['#2FB8FF', '#9EECD9']}
+                    style={{height: 9, width: 2, alignSelf: 'flex-end'}}
+                  />
+                }
+                <CustomText
+                  style={{
+                    color: '#fff',
+                    fontSize: 13,
+                    letterSpacing: -0.07,
+                    fontWeight: '400',
+                  }}>
+                  100%
+                </CustomText>
+              </Flex>
+            </Flex>
+          </View>
+        </Flex>
       </View>
     </Flex>
   );
