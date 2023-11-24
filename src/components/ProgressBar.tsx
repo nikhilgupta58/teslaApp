@@ -117,8 +117,8 @@ export default function ProgressBar() {
   return (
     <View
       style={{
-        width: size,
-        height: size,
+        width: 192.5,
+        height: 192.5,
         justifyContent: 'center',
         alignItems: 'center',
         marginVertical: 30,
