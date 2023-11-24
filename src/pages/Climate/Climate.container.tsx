@@ -6,7 +6,7 @@ import SettingSheet from './components/SettingSheet';
 import {ClimateContext} from './utils/context';
 
 export default function ClimateContainer() {
-  const [climate, setClimate] = React.useState(40);
+  const [climate, setClimate] = React.useState(0.4);
   const [active, setActive] = React.useState(false);
   return (
     <AppLayout>
