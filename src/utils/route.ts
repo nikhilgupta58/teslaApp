@@ -36,6 +36,7 @@ export const routes = [
     component: Climate,
     option: {
       headerShown: false,
+      animationEnabled: false,
     },
   },
 ];
