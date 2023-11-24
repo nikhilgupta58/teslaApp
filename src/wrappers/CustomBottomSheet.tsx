@@ -9,7 +9,12 @@ export default function CustomBottomSheet({
   setOpen,
   sheetStyle = {},
   ...props
-}: any) {
+}: {
+  children: React.ReactNode;
+  isOpen: boolean;
+  setOpen: (e: boolean) => void;
+  sheetStyle?: {};
+}) {
   const refRBSheet = useRef();
   React.useEffect(() => {
     if (isOpen) {

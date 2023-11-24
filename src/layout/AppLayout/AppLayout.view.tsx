@@ -26,7 +26,11 @@ export default function AppLayoutView() {
             height: Dimensions.get('screen').height,
             backgroundColor: 'transparent',
           }}>
-          <Flex style={{flex: 1, marginBottom: showNav ? 150 : 0}}>
+          <Flex
+            style={{
+              flex: 1,
+              marginBottom: showNav ? 150 : 0,
+            }}>
             {children}
           </Flex>
         </ScrollView>

@@ -46,6 +46,10 @@ export default function ClimateView() {
         <Button onPress={() => setIsOpen(true)} icon={'settings'} />
       </Flex>
       <ProgressBar />
+      <ProgressBar />
+      <ProgressBar />
+      <ProgressBar />
+      <ProgressBar />
     </Flex>
   );
 }
